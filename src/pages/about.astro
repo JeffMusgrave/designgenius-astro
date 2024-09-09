@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import jeffImage from '../assets/jeff-musgrave.jpg';
+---
+
+<Layout 
+  title="About - Design Genius" 
+>
+  <section class="py-12 md:py-20 bg-prince-100 dark:bg-prince-900">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-heading mb-8">About Design Genius</h1>
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/3">
+          <Image 
+            src={jeffImage} 
+            alt="Jeff Musgrave" 
+            width={400} 
+            height={400} 
+            class="rounded-full shadow-lg"
+          />
+        </div>
+        <div class="md:w-2/3">
+          <h2 class="text-2xl font-semibold mb-4">Hello, I'm Jeff Musgrave</h2>
+          <p class="mb-4">I'm an expert in the art and technology of visual presentation. With years of experience in web design, branding, and digital marketing, I help small businesses create compelling online presences that drive results.</p>
+          <p class="mb-4">At Design Genius, we believe that great design is more than just aesthetics. It's about creating intuitive, user-friendly experiences that connect with your audience and help your business grow.</p>
+          <p>Whether you need a new website, a logo design, or a complete brand overhaul, I'm here to help you make a lasting impression in the digital world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

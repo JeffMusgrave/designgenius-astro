@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Paytone+One&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Paytone One", sans-serif;
+}
+
+.single-cell-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.single-cell-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+/* Add any additional global styles here */
+@keyframes slideBg {
+  0% {
+    transform: translate(-100px);
+  }
+  100% {
+    transform: translate(-200px);
+  }
+}

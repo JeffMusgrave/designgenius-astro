@@ -1,0 +1,58 @@
+<!-- ---
+const { images } = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery">
+  {images.map((image, index) => (
+    <img 
+      src={image.src} 
+      alt={image.alt} 
+      class="w-full h-64 object-cover cursor-pointer" 
+      data-index={index}
+    />
+  ))}
+</div>
+
+<dialog id="lightbox" class="w-full h-full bg-black bg-opacity-90 p-4">
+  <img id="lightbox-img" class="max-w-full max-h-full mx-auto" />
+  <button id="close-lightbox" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+  <button id="prev-image" class="absolute left-4 top-1/2 text-white text-4xl">&lt;</button>
+  <button id="next-image" class="absolute right-4 top-1/2 text-white text-4xl">&gt;</button>
+</dialog>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const gallery = document.getElementById('gallery');
+  const closeLightbox = document.getElementById('close-lightbox');
+  const prevImage = document.getElementById('prev-image');
+  const nextImage = document.getElementById('next-image');
+
+  let currentIndex = 0;
+  const images = [...document.querySelectorAll('#gallery img')];
+
+  gallery.addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG') {
+      currentIndex = parseInt(e.target.dataset.index);
+      updateLightboxImage();
+      lightbox.showModal();
+    }
+  });
+
+  closeLightbox.addEventListener('click', () => lightbox.close());
+
+  prevImage.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateLightboxImage();
+  });
+
+  nextImage.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateLightboxImage();
+  });
+
+  function updateLightboxImage() {
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+  }
+</script> -->
