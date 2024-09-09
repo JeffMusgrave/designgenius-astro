@@ -1,38 +1,137 @@
 ---
 import Logo from './Logo.astro';
+import { Icon } from '@astropub/icons';
+
+const nav = [
+  { url: "#youredge", name: "Your Edge" },
+  { url: "#design", name: "Design" },
+  { url: "#albumart", name: "Album Art" },
+  { url: "#contact", name: "Contact" },
+];
 ---
 
-<header class="fixed py-2 top-0 left-0 right-0 z-50 scroll-fade-bg before:shadow-md transition-all duration-300">
+<header class="fixed py-2 top-0 left-0 right-0 z-50 scroll-fade-bg before:shadow-md transition-all duration-300 ">
   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
     <a href="/" class="flex items-center">
       <Logo class="w-32 h-auto [&_*]:fill-white" />
       <span class="sr-only">Design Genius</span>
     </a>
-    <nav>
-      <ul class="flex text-white space-x-6 text-sm font-semibold">
-        <li><a href="#youredge" class=" hover:text-purple-500 transition-colors">Your Edge</a></li>
-        <li><a href="#design" class=" hover:text-purple-500 transition-colors">Design</a></li>
-        <li><a href="#albumart" class=" hover:text-purple-500 transition-colors">Album Art</a></li>
-        <li><a href="#contact" class=" hover:text-purple-500 transition-colors">Contact</a></li>
-      </ul>
+    
+    <input type="checkbox" id="side-menu" class="side-menu hidden" />
+    <label
+      for="side-menu"
+      class="menu-icon relative z-20 block cursor-pointer self-center lg:hidden"
+    >
+      <div class="icon text-white absolute hamburger transition-all">
+        <i  class="gg-menu"/>
+      </div>
+      <div class="exit -mt-2.5 text-white transition-all">
+        <i class="gg-close" />
+      </div>
+    </label>
+
+    <nav
+      role="navigation"
+      aria-label="Main Navigation"
+      class="nav-menu max-h-0 lg:max-h-none fixed top-0 left-0 right-0 bottom-0 flex h-[100dvh] flex-col place-content-center items-center gap-[clamp(1rem,_8vh,_5rem)] overflow-hidden bg-prince-800 text-3xl  transition-all lg:relative lg:h-fit lg:w-auto lg:flex-row lg:place-content-start lg:bg-transparent lg:gap-4"
+    >
+      {
+        nav.map((item) => (
+          <a
+            href={item.url}
+            class="px-2 py-2 select-none text-white lg:hover:text-salmon-600 transition-colors font-heading tracking-wide lg:text-base"
+          >
+            {item.name}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>
 
 <style>
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  body:has(.side-menu:checked) {
+    overflow: hidden;
+  }
+  .side-menu:checked ~ nav {
+    max-height: 100dvh !important;
+  }
+  .side-menu:checked ~ .menu-icon > .exit {
+    opacity: 100%;
+  }
+  .side-menu:checked ~ .menu-icon > .hamburger {
+    opacity: 0%;
+  }
+  .side-menu:not(:checked) ~ .menu-icon > .exit {
+    opacity: 0%;
+  }
+  .side-menu:not(:checked) ~ .menu-icon > .hamburger {
+    opacity: 100%;
+  }
 
-.scroll-fade-bg::before {
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .scroll-fade-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: theme('colors.prince.800'); 
+    z-index: -1;
+    animation: fade-in linear;
+    animation-timeline: scroll();
+    animation-range: 0 50vh;
+  }
+  .gg-menu {
+  transform: scale(var(--ggs, 1));
+}
+.gg-menu,
+.gg-menu::after,
+.gg-menu::before {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 3px;
+  background: currentColor;
+}
+.gg-menu::after,
+.gg-menu::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-color: theme('colors.prince.800'); 
-  z-index: -1;
-  animation: fade-in linear;
-  animation-timeline: scroll();
-  animation-range: 0 50vh;
+  top: -6px;
+}
+.gg-menu::after {
+  top: 6px;
+}
+.gg-close {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+}
+.gg-close::after,
+.gg-close::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(45deg);
+  border-radius: 5px;
+  top: 8px;
+  left: 1px;
+}
+.gg-close::after {
+  transform: rotate(-45deg);
 }
 </style>
