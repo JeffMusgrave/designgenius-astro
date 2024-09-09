@@ -8,6 +8,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+html {
+  background-color: #150833;
+}
+
 h1,
 h2,
 h3,

@@ -2,9 +2,11 @@
 import { Image } from 'astro:assets';
 
 interface PortfolioItem {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  thumb: string;
   image: string;
+  alt?: string;
 }
 
 interface Props {
@@ -14,20 +16,22 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<section id="design" class="py-16 bg-prince-900">
+<section id="design" class="pt-32 pb-16 bg-[#150833]">
   <div class="container mx-auto px-4 text-white">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Design Portfolio</h2>
     {items.map((item, index) => (
-      <div class={`flex flex-col md:flex-row items-center mb-16 ${index % 2 === 1 ? 'md:flex-row-reverse !bg-prince-900' : ''}`}>
-        <div class="md:w-1/2 mb-8 md:mb-0">
+      <div class={`flex flex-col md:flex-row items-center mb-32 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+
+        <a class="md:w-1/2 mb-8 md:mb-0" href={item.image}>
           <Image
-            src={item.image}
-            alt={item.title}
+            src={item.thumb}
+            alt={item.alt ? item.alt : item.title}
             width={600}
             height={400}
-            class="rounded-xl shadow-lg w-full h-auto"
+            class="rounded-xl w-full h-auto"
           />
-        </div>
+          </a>
+
         <div class="md:w-1/2 md:px-8">
           <h3 class="text-2xl font-bold mb-4">{item.title}</h3>
           <p class="text-lg">{item.description}</p>

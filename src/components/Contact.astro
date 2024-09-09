@@ -1,24 +1,111 @@
-<section id="contact" class="bg-purple-900 text-white py-16">
-  <div class="container mx-auto px-4">
+---
+import { Image } from "astro:assets";
+import Contactblurb from "../snippets/contactblurb.md";
+import JeffPic from "../images/site/jeff-musgrave-960.jpg";
+---
+
+<section id="contact" class="bg-[#150833] text-white pt-48 pb-24">
+  <div class="container flex flex-col items-center mx-auto px-4 lg:max-w-xl">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Let's work together</h2>
-    <div class="max-w-2xl mx-auto">
-      <form class="space-y-6" action="#" method="POST">
+    <Image src={JeffPic} alt="Jeff Musgrave" class="rounded-full w-40" />
+    <aside class="prose py-16 text-xl text-white mb-8">
+      <Contactblurb />
+    </aside>
+    <div class="mx-auto w-full">
+      <form id="contact-form" class="space-y-6" action="https://formspree.io/f/xayajdev" method="POST">
         <div>
           <label for="name" class="block text-sm font-medium mb-2">Name</label>
-          <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md text-gray-900 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md text-white focus:outline-none focus:ring-2 bg-transparent border-prince-600 border focus:ring-salmon-500" />
+          <span class="error-message text-salmon-500 text-sm hidden"></span>
         </div>
         <div>
           <label for="email" class="block text-sm font-medium mb-2">Email</label>
-          <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md text-gray-900 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md text-white focus:outline-none focus:ring-2 bg-transparent border-prince-600 border focus:ring-salmon-500" />
+          <span class="error-message text-salmon-500 text-sm hidden"></span>
         </div>
         <div>
           <label for="message" class="block text-sm font-medium mb-2">Message</label>
-          <textarea id="message" name="message" required class="w-full px-4 py-2 rounded-md text-gray-900 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500" rows="4"></textarea>
+          <textarea id="message" name="message" required class="w-full px-4 py-2 rounded-md text-white focus:outline-none focus:ring-2 bg-transparent border-prince-600 border focus:ring-salmon-500" rows="4"></textarea>
+          <span class="error-message text-salmon-500 text-sm hidden"></span>
         </div>
         <div>
-          <button type="submit" class="w-full bg-yellow-400 text-purple-900 px-8 py-4 rounded-full text-xl font-bold hover:bg-yellow-300 transition-colors duration-300">Send Message</button>
+          <button type="submit" class="w-full bg-prince-900/50 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-prince-900 transition-colors duration-300">Send Message</button>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const nameInput = document.getElementById('name') as HTMLInputElement;
+  const emailInput = document.getElementById('email') as HTMLInputElement;
+  const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+
+  function showError(input: HTMLInputElement | HTMLTextAreaElement, message: string) {
+    const errorElement = input.nextElementSibling as HTMLElement;
+    errorElement.textContent = message;
+    errorElement.classList.remove('hidden');
+  }
+
+  function clearError(input: HTMLInputElement | HTMLTextAreaElement) {
+    const errorElement = input.nextElementSibling as HTMLElement;
+    errorElement.textContent = '';
+    errorElement.classList.add('hidden');
+  }
+
+  function validateForm(): boolean {
+    let isValid = true;
+
+    if (nameInput.value.length < 2) {
+      showError(nameInput, 'Name must be at least 2 characters long');
+      isValid = false;
+    } else {
+      clearError(nameInput);
+    }
+
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!emailRegex.test(emailInput.value)) {
+      showError(emailInput, 'Please enter a valid email address');
+      isValid = false;
+    } else {
+      clearError(emailInput);
+    }
+
+    if (messageInput.value.length < 10) {
+      showError(messageInput, 'Message must be at least 10 characters long');
+      isValid = false;
+    } else {
+      clearError(messageInput);
+    }
+
+    return isValid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          alert('Thank you! Your message has been sent.');
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('Oops! There was a problem submitting your form. Please try again later.');
+      }
+    }
+  });
+</script>

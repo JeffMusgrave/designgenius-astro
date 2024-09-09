@@ -2,8 +2,11 @@
 import { Image } from 'astro:assets';
 
 interface AlbumArtItem {
-  title: string;
+  title?: string;
+  description?: string;
+  thumb: string;
   image: string;
+  alt?: string;
 }
 
 interface Props {
@@ -13,15 +16,15 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<section id="albumart" class="relative overflow-hidden bg-salmon-500 py-16">
+<section id="albumart" class="relative overflow-hidden bg-salmon-500 py-32">
   <div class="container mx-auto px-4 relative z-10">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Album Art</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
       {items.map((item) => (
-        <div class="relative aspect-square overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+        <a class="relative aspect-square overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300" href={item.image} title={item.title}>
           <Image
             src={item.image}
-            alt={item.title}
+            alt={item.alt ? item.alt : item.title}
             width={300}
             height={300}
             class="object-cover w-full h-full"
@@ -29,7 +32,7 @@ const { items } = Astro.props;
           <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <span class="text-white text-center font-semibold px-2">{item.title}</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </div>

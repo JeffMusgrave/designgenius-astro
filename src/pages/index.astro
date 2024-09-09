@@ -7,51 +7,7 @@ import Portfolio from '../components/Portfolio.astro';
 import AlbumArt from '../components/AlbumArt.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-
-const portfolioItems = [
-  {
-    title: 'Whitewater Ski Resort',
-    description: 'When Whitewater Ski Resort asked for a new website, I created this design, which helped them look more exciting and sophisticated.',
-    image: '/images/portfolio/WhitewaterStyle.jpg'
-  },
-  {
-    title: 'arXiv.org',
-    description: 'How can an academic research website look serious yet stylish? Consider arXiv.org, for example. Here is how I would redesign the site to look more visually appealing, while retaining enough of the original to be recognizable.',
-    image: '/images/portfolio/arXivConcept.jpg'
-  },
-  {
-    title: 'PyTorch Adapt',
-    description: 'Even a codebase on Github can be branded with a distinctive logo design. This logo uses a simplified and stylized chameleon with eyes to suggest artificial intelligence, while performing double duty by hinting at the library\'s function: domain adaptation.',
-    image: '/images/portfolio/PyAdapt.jpg'
-  },
-  {
-    title: 'Pay Per Click Ads',
-    description: 'Here are some ad designs I created for several clients who wanted to advertise with Google AdWords.',
-    image: '/images/portfolio/SmallGraphicsSpread.jpg'
-  },
-  {
-    title: 'University of Guelph FARE',
-    description: 'For this website, I used images of food and agriculture to visually communicate the focus of research for a professor at the University of Guelph.',
-    image: '/images/portfolio/UniversitySpread.jpg'
-  },
-  {
-    title: 'KCM Whitepaper',
-    description: 'How can a designer make a whitepaper look appealing? Here is an attractive design I created for a marketing whitepaper from KCM.',
-    image: '/images/portfolio/WhitePaperSpread.jpg'
-  },
-];
-
-const albumArtItems = [
-  { title: 'Ephemeral Firelight', image: '/images/albumart/EphemeralFirelight.jpg' },
-  { title: 'Half The Truth Is A Whole Lie', image: '/images/albumart/HalfTheTruthIsAWholeLieArt.jpg' },
-  { title: 'LP One', image: '/images/albumart/LPOne.jpg' },
-  { title: 'Melody In The Half Light', image: '/images/albumart/MelodyInTheHalfLight.jpg' },
-  { title: 'Protection', image: '/images/albumart/SV1_03_Protection.jpg' },
-  { title: 'Tilt', image: '/images/albumart/SV1_05_Tilt.jpg' },
-  { title: 'I Can\'t Give Everything Away', image: '/images/albumart/SV1_06_ICantGiveEverythingAway.jpg' },
-  { title: 'Yellow Brick Road', image: '/images/albumart/YellowBrickRoad.jpg' },
-  { title: 'You\'d Be So Nice To Come Home To', image: '/images/albumart/YoudBeSoNiceToComeHomeTo.jpg' },
-];
+import {portfolioItems, albumArtItems} from "../lists/portfolioItems"
 ---
 
 <Layout title="Design Genius - Web Design for Small Businesses">
