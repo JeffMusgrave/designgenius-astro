@@ -4,8 +4,8 @@ import { Image } from 'astro:assets';
 interface AlbumArtItem {
   title?: string;
   description?: string;
-  thumb: string;
-  image: string;
+  thumb: () => Promise<{ default: ImageMetadata }>;
+  image: () => Promise<{ default: ImageMetadata }>;
   alt?: string;
 }
 
@@ -20,10 +20,13 @@ const { items } = Astro.props;
   <div class="container mx-auto px-4 relative z-10">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Album Art</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-      {items.map((item) => (
-        <a class="relative aspect-square overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300" href={item.image} title={item.title}>
+      {items.map(async (item, index) => {
+        const thumbImage = await item.thumb();
+        const fullImage = await item.image();
+        return (
+        <a class="relative aspect-square overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300" href={fullImage.default.src} title={item.title}>
           <Image
-            src={item.thumb}
+            src={thumbImage.default}
             alt={item.alt ? item.alt : item.title}
             width={300}
             height={300}
@@ -33,7 +36,8 @@ const { items } = Astro.props;
             <span class="text-white text-center font-semibold px-2">{item.title}</span>
           </div>
         </a>
-      ))}
+      );
+    })}
     </div>
   </div>
 </section>

@@ -4,8 +4,8 @@ import { Image } from 'astro:assets';
 interface PortfolioItem {
   title?: string;
   description?: string;
-  thumb: string;
-  image: string;
+  thumb: () => Promise<{ default: ImageMetadata }>;
+  image: () => Promise<{ default: ImageMetadata }>;
   alt?: string;
 }
 
@@ -19,12 +19,15 @@ const { items } = Astro.props;
 <section id="design" class="pt-32 pb-16 bg-[#150833]">
   <div class="container mx-auto px-4 text-white">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Design Portfolio</h2>
-    {items.map((item, index) => (
+    {items.map(async (item, index) => {
+      const thumbImage = await item.thumb();
+      const fullImage = await item.image();
+      return (
       <div class={`flex flex-col md:flex-row items-center mb-32 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
 
-        <a class="md:w-1/2 mb-8 md:mb-0" href={item.image}>
+        <a class="md:w-1/2 mb-8 md:mb-0" href={fullImage.default.src}>
           <Image
-            src={item.thumb}
+            src={thumbImage.default}
             alt={item.alt ? item.alt : item.title}
             width={600}
             height={400}
@@ -37,6 +40,7 @@ const { items } = Astro.props;
           <p class="text-lg">{item.description}</p>
         </div>
       </div>
-    ))}
+          );
+        })}
   </div>
 </section>
