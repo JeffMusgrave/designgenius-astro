@@ -28,11 +28,6 @@ export default defineConfig({
   redirects:{
   },
   vite: {
-    resolve: {
-      alias: {
-        '@images': '/src/images'  // Make sure this path is correct
-      }
-    }, 
     plugins: [
       {
         name: 'image-optimization',
