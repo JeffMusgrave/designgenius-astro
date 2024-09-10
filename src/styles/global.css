@@ -10,7 +10,12 @@ body {
 
 html {
   background-color: #150833;
+  scroll-behavior: smooth;
 }
+
+/* body * {
+  scroll-margin: 8rem;
+} */
 
 h1,
 h2,
