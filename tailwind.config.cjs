@@ -79,7 +79,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
-        heading: ['Paytone One', 'sans-serif'],
+        paytone: ['Paytone One', 'sans-serif'],
       },
     },
   },
