@@ -1,0 +1,138 @@
+---
+import { Schema } from "astro-seo-schema";
+import { Seo } from "astro-seo-meta";
+import type {
+  WithContext,
+  WebSite,
+  Organization,
+  ProfessionalService,
+} from "schema-dts";
+
+const seoProps = {
+  title: "Website Designer, Developer & SEO Expert | Graphic Design Kitchener-Waterloo",
+  description: "Boost your visibility with outstanding SEO, design & development. Expert web developer and SEO specialist for small businesses in Kitchener-Waterloo, Guelph, Cambridge, and Toronto.",
+  canonical: "https://designgenius.com/",
+  openGraph: {
+    basic: {
+      title: "Website Designer, Developer & SEO Expert for Small Businesses | Kitchener-Waterloo Graphic Design",
+      type: "website",
+      // image: "https://designgenius.com/path/to/og-image.jpg",
+    },
+  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   site: "@DesignGeniusHandle", 
+  //   creator: "@JeffDesignGenius", 
+  // },
+} as const;
+
+const websiteSchema: WithContext<WebSite> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://designgenius.com/#website",
+  name: "Design Genius",
+  url: "https://designgenius.com",
+  description: "Web Developer & SEO Expert for Small Businesses in Kitchener-Waterloo, Guelph, Cambridge, and Toronto.",
+};
+
+const businessSchema: WithContext<Organization> = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://designgenius.com/#organization",
+  name: "Design Genius",
+  description: "Web Developer & SEO Expert for Small Businesses in Kitchener-Waterloo, Guelph, Cambridge, and Toronto.",
+  url: "https://designgenius.com",
+  // email: "jeff@designgenius.com", 
+  // founder: {
+  //   "@type": "Person",
+  //   name: "Jeff",
+  // },
+  // logo: {
+  //   "@type": "ImageObject",
+  //   url: "https://designgenius.com/path/to/logo.png",
+  //   width: "112",
+  //   height: "112",
+  // },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Kitchener-Waterloo"
+    },
+    {
+      "@type": "City",
+      name: "Guelph"
+    },
+    {
+      "@type": "City",
+      name: "Cambridge"
+    },
+    {
+      "@type": "City",
+      name: "Toronto"
+    }
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web Development and Design Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Web Development",
+          description: "Creating responsive mobile-friendly websites that adapt to all screen sizes, for an optimal user experience."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Search Engine Optimization (SEO)",
+          description: "Optimizing your website's on-page SEO and technical SEO  and structure for better search engine rankings."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Mobile First Web Design",
+          description: "Designing websites optimized for mobile devices."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "UI/UX Development",
+          description: "Creating intuitive and user-friendly interfaces for websites and applications."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Search Engine Optimized Content",
+          description: "Crafting content that's both user-friendly and optimized for search engines."
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Website Maintenance",
+          description: "Ongoing support and updates to keep websites secure and up-to-date."
+        }
+      }
+    ]
+  // sameAs: [
+  //   "https://www.facebook.com/DesignGenius",
+  //   "https://www.linkedin.com/company/designgenius",
+  //   "https://www.instagram.com/designgenius",
+  // ],
+}};
+
+---
+
+<Schema item={websiteSchema} />
+<Schema item={businessSchema} />
+<Seo {...seoProps} />
