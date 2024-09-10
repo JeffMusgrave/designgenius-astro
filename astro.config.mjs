@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import { sharp } from 'astro/assets/services/sharp';
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
@@ -10,7 +9,7 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   site: 'https://designgenius.com',
   image: {
-    service: sharp,
+    service: { entrypoint: 'astro/assets/services/sharp' },
     domains: ['designgenius.com'],
     remotePatterns: [{ protocol: "https" }],
   },
@@ -33,7 +32,8 @@ export default defineConfig({
       alias: {
         '@images': '/src/images'  // Make sure this path is correct
       }
-    }, plugins: [
+    }, 
+    plugins: [
       {
         name: 'image-optimization',
         enforce: 'post',
