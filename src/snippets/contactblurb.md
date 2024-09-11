@@ -1,4 +1,4 @@
-Hello! My name is Jeff, and I'm an expert in the art and technology of visual presentation.
+Hello! My name is Jeff Musgrave, and I'm an expert in the art and technology of visual presentation.
 
 Whatever your design or communication challenge, I can create an effective solution.
 
