@@ -7,10 +7,10 @@ import mdx from "@astrojs/mdx"
 import robotsTxt from "astro-robots-txt";
 
 export default defineConfig({
-  site: 'https://designgenius.com',
+  site: 'https://designgenius.ca',
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },
-    domains: ['designgenius.com'],
+    domains: ['designgenius.ca'],
     remotePatterns: [{ protocol: "https" }],
   },
   integrations: [
