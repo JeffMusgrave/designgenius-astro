@@ -1,0 +1,15 @@
+---
+interface Props {
+  classes?: string;
+  styles?: string;
+}
+
+const { classes = "overflow-hidden bg-sunny-500 py-56 pb-32 flex items-center relative", styles = "container mx-auto px-4" } = Astro.props;
+---
+
+<section class={classes}>
+  <div class={styles}>
+    <slot />   
+  </div> 
+</section>
+
