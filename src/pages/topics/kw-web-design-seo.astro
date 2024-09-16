@@ -1,0 +1,20 @@
+---
+import GenericHero from "../../components/sections/GenericHero.astro";
+import Section from "../../components/sections/Section.astro";
+import Layout from "../../layouts/Layout.astro";
+import HeroText from "../../snippets/landing-pages/kw/herotext.md"
+import Intro from "../../snippets/landing-pages/kw/intro.md"
+import Part1 from "../../snippets/landing-pages/kw/part1.md"
+import Part2 from "../../snippets/landing-pages/kw/part2.md"
+import Close from "../../snippets/landing-pages/kw/close.md"
+import Contact from "../../components/Contact.astro";
+
+---
+<Layout>
+  <GenericHero><HeroText /></GenericHero>
+  <Section><Intro /></Section>
+  <Section classes="bg-prince-500 relative text-white py-32 overflow-hidden"><Part1 /></Section>
+  <Section classes="bg-egypt-900 relative text-white py-32 overflow-hidden"><Part2 /></Section>
+  <Section classes="bg-salmon-900 relative text-white py-32 overflow-hidden"><Close /></Section>
+  <Contact />
+</Layout>
