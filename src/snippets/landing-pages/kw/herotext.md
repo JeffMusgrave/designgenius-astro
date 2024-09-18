@@ -1,1 +1,1 @@
-# Website Designer, Website Developer, and SEO Consultant
+# Website Designer, Website Developer & SEO Consultant
