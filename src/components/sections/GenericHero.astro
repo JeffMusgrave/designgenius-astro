@@ -1,15 +1,23 @@
 ---
 interface Props {
+  id?: string;
   classes?: string;
-  styles?: string;
+  before?: boolean;
+  opacity?: string;
 }
 
-const { classes = "overflow-hidden bg-sunny-500 py-56 pb-32 flex items-center relative", styles = "container mx-auto px-4" } = Astro.props;
+const { id = "", classes = "bg-sunny-600 relative text-white pt-56 pb-16 overflow-hidden", before = false, opacity = before ? "before:opacity-30" : ""} = Astro.props;
+const anim = before ? "section" : "";
+
 ---
 
-<section class={classes}>
-  <div class={styles}>
-    <slot />   
-  </div> 
+<section id={id} class={`${classes} ${anim} ${opacity} w-full`}>
+  <div class="container relative z-10 justify-center px-4 mx-auto">
+    <div class="max-w-2xl w-full mx-auto">
+      <div class="prose-headings:text-white w-full prose prose-lg">
+        <slot />
+      </div>
+    </div>
+  </div>
 </section>
 

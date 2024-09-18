@@ -4,11 +4,24 @@ import SmallLightbulb from "../components/SmallLightbulb.astro"
 
 
 
-<footer class="bg-[#150833] text-white py-8">
-  <div class="container flex  flex-col items-center mx-auto px-4 text-center">
-    <SmallLightbulb class="w-[clamp(5rem,_50vw,_24rem)] mb-32"  />
+<footer class="bg-[#150833] flex justify-center text-white py-8">
+  <div class="container flex  flex-col items-center max-w-3xl px-4 text-center">
+    <SmallLightbulb class="w-[clamp(5rem,_50vw,_24rem)] mb-32 self-center"  />
+    <section class="flex gap-8 justify-between self-stretch">
+      <article class="flex flex-col items-start">
+        <p class="text-sm text-prince-300">Topics</p>
+        <ul>
+          <li>
+            <a href="/topics/kw-web-design-seo" class="text-xs text-prince-400 hover:underline break-words text-left inline-block">
+              Kitchener Waterloo Web Design
+            </a>
+          </li>
+        </ul>
+      </article>
     <p>
-      <a href="/sitemap-index.xml" class="text-sm text-gray-400 hover:underline">Sitemap</a>
+      <a href="/sitemap-index.xml" class="text-sm text-prince-400 hover:underline">Sitemap</a>
     </p>
+
+</section>
   </div>
 </footer>
