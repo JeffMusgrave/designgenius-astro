@@ -6,6 +6,10 @@ import HeroText from "../../snippets/landing-pages/kw/herotext.md"
 import Intro from "../../snippets/landing-pages/kw/intro.md"
 import Part1 from "../../snippets/landing-pages/kw/part1.md"
 import Part2 from "../../snippets/landing-pages/kw/part2.md"
+import Point1 from "../../snippets/landing-pages/kw/point1.md"
+import Point2 from "../../snippets/landing-pages/kw/point2.md"
+import Point3 from "../../snippets/landing-pages/kw/point3.md"
+import Point4 from "../../snippets/landing-pages/kw/point4.md"
 import Close from "../../snippets/landing-pages/kw/close.md"
 import Contact from "../../components/Contact.astro";
 
@@ -13,8 +17,11 @@ import Contact from "../../components/Contact.astro";
 <Layout>
   <GenericHero><HeroText /></GenericHero>
   <Section><Intro /></Section>
-  <Section classes="bg-prince-500 relative text-white py-32 overflow-hidden"><Part1 /></Section>
-  <Section classes="bg-egypt-900 relative text-white py-32 overflow-hidden"><Part2 /></Section>
-  <Section classes="bg-salmon-900 relative text-white py-32 overflow-hidden"><Close /></Section>
+  <Section classes="bg-prince-700 relative text-white py-32 overflow-hidden"><Point1 /></Section>
+  <Section classes="bg-prince-500 relative text-white py-32 overflow-hidden"><Point2 /></Section>
+  <Section classes="bg-prince-700 relative text-white py-32 overflow-hidden"><Point3 /></Section>
+  <Section classes="bg-prince-500 relative text-white py-32 overflow-hidden"><Point4 /></Section>
+  <Section classes="bg-punch-800 relative text-white py-32 overflow-hidden"><Part2 /></Section>
+  <!-- <Section classes="bg-salmon-900 relative text-white py-32 overflow-hidden"><Close /></Section> -->
   <Contact />
 </Layout>

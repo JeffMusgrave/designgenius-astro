@@ -1,8 +1,7 @@
 ## Why Invest in Professional Web Services?
 
-In Kitchener-Waterloo's competitive digital landscape, here's how my expertise can give you the edge:
+To compete online in Kitchener-Waterloo, you need an edge. I can give you that edge. Let me handle your website design, development, SEO, and maintenance, while you concentrate on what you do best.
 
-- Stand Out Online: A well-designed website helps you make a lasting impression in the tech-savvy KW market.
-- Reach More Customers: Effective SEO ensures your business gets found by potential clients in Kitchener-Waterloo and beyond.
-- Stay Secure and Up-to-Date: Regular website maintenance keeps your site protected and performing at its best.
-- Save Time and Focus on Your Business: Let me handle the technical aspects while you concentrate on what you do best.
+Whether you need a brand-new website or improvements to your existing site, whether you want to boost your Google search-engine rankings, or require reliable website maintenance services, I’m here to help. Let’s work together to create a powerful online presence that drives results for your business.
+
+I serve businesses like yours in Kitchener-Waterloo, Guelph and Cambridge. I also serve businesses across Canada, and around the world. Contact me today for a free consultation.
