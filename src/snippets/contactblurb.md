@@ -1,5 +1,5 @@
-Hello! My name is Jeff Musgrave, and I'm an expert in the art and technology of visual presentation.
+Hello! My name is Jeff Musgrave, and I’m an expert in the art and technology of visual presentation.
 
-Whatever your design or communication challenge, I can create an effective solution. I will be pleased to assist you with website development, design, and search-engine optimization.
+If you need assistance with website development, design, or search-engine optimization, contact me now for a free consultation!
 
 Contact me now for a free consultation!
