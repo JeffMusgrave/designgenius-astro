@@ -6,11 +6,11 @@ Your website, logo, and marketing materials will look appealing and professional
 
 ### Positive User Experience
 
-Your website will offer intuitive functionality and easy navigation.
+Your website will be intuitive and easy to navigate.
 
 ### Reach More Customers
 
-Expert **search engine optimization** will help your website achieve a higher ranking in Google search results. In other words, SEO will help more potential customers discover your business.
+To help your website achieve a higher ranking in Google search results, I will apply my proprietary **search engine optimization** process. That will make it easier for potential customers to discover your website on Google.
 
 ### Website Maintenance Service
 
