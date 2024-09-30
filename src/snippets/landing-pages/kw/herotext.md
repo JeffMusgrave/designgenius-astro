@@ -1,1 +1,1 @@
-# Website Designer, Website Developer & SEO Consultant
+# Website Designer, Developer, & SEO Consultant in Kitchener-Waterloo
