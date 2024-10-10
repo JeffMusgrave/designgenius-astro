@@ -14,9 +14,11 @@ import Close from "../../snippets/landing-pages/kw/close.md"
 import Contact from "../../components/Contact.astro";
 import Hero from "../../components/Hero.astro";
 import MainHero from "../../components/sections/MainHero.astro"
+import KwWebDesignMeta from "../../seo/home/topics/KwWebDesignMeta.astro";
 
 ---
 <Layout>
+  <KwWebDesignMeta slot="SEO" />
   <MainHero href="#for-your-business-in-kitchener-waterloo-guelph-and-cambridge"><HeroText /></MainHero>
   <Section><Intro /></Section>
   <Section classes="bg-prince-700 relative text-white py-32 overflow-hidden"><Part1 /></Section>
