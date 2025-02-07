@@ -1,19 +1,11 @@
 export const portfolioItems = [
   {
-    title: "Whitewater Ski Resort",
+    title: "Setta",
     description:
-      "When Whitewater Ski Resort asked for a new website, I created this design, which helped them look more exciting and sophisticated.",
+      "As the UI/UX designer for Setta, I crafted an intuitive interface that helps developers streamline their Python workflows. I created the brand identity including the logo, and implemented the entire frontend using React and Tailwind CSS. The design emphasizes ease of use while maintaining powerful functionality, featuring a drag-and-drop config system, real-time interaction capabilities, and integrated documentation support.",
     thumb: () =>
-      import("../images/portfolio/digitalprint/thumbs/WhitewaterStyle_200.jpg"),
-    image: () => import("../images/portfolio/digitalprint/WhitewaterStyle.jpg"),
-  },
-  {
-    title: "arXiv.org",
-    description:
-      "How can an academic research website look serious yet stylish? Consider arXiv.org, for example. Here is how I would redesign the site to look more visually appealing, while retaining enough of the original to be recognizable.",
-    thumb: () =>
-      import("../images/portfolio/digitalprint/thumbs/arXivConcept_200.jpg"),
-    image: () => import("../images/portfolio/digitalprint/arXivConcept.jpg"),
+      import("../images/portfolio/digitalprint/thumbs/setta_200.jpg"),
+    image: () => import("../images/portfolio/digitalprint/setta.png"),
   },
   {
     title: "PyTorch Adapt",
