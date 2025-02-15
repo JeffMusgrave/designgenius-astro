@@ -5,7 +5,8 @@ interface PortfolioItem {
   title?: string;
   description?: string;
   thumb: () => Promise<{ default: ImageMetadata }>;
-  image: () => Promise<{ default: ImageMetadata }>;
+  image?: () => Promise<{ default: ImageMetadata }>;
+  link?: string;
   alt?: string;
 }
 
@@ -21,26 +22,30 @@ const { items } = Astro.props;
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Design Portfolio</h2>
     {items.map(async (item, index) => {
       const thumbImage = await item.thumb();
-      const fullImage = await item.image();
+      const fullImage = item.image ? await item.image() : null;
       return (
-      <div class={`flex flex-col md:flex-row items-center mb-32 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-
-        <a class="md:w-1/2 mb-8 md:mb-0" href={fullImage.default.src}>
-          <Image
-            src={thumbImage.default}
-            alt={item.alt ? item.alt : item.title}
-            width={600}
-            height={400}
-            class="rounded-xl w-full h-auto"
-          />
+        <div class={`flex flex-col md:flex-row items-center mb-32 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <a 
+            class="md:w-1/2 mb-8 md:mb-0" 
+            href={fullImage ? fullImage.default.src : item.link}
+            {...(item.link && { target: "_blank", rel: "noopener noreferrer" })}
+          >
+            <Image
+              src={thumbImage.default}
+              alt={item.alt ? item.alt : item.title}
+              width={1280}
+              height={720}
+              class="rounded-xl w-full h-auto"
+              quality={80}
+            />
           </a>
 
-        <div class="md:w-1/2 md:px-8">
-          <h3 class="text-2xl font-bold mb-4">{item.title}</h3>
-          <p class="text-lg">{item.description}</p>
+          <div class="md:w-1/2 md:px-8">
+            <h3 class="text-2xl font-bold mb-4">{item.title}</h3>
+            <p class="text-lg">{item.description}</p>
+          </div>
         </div>
-      </div>
-          );
-        })}
+      );
+    })}
   </div>
 </section>

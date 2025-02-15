@@ -2,10 +2,20 @@ export const portfolioItems = [
   {
     title: "Setta",
     description:
-      "As the UI/UX designer for Setta, I crafted an intuitive interface that helps developers streamline their Python workflows. I created the brand identity including the logo, and implemented the entire frontend using React and Tailwind CSS. The design emphasizes ease of use while maintaining powerful functionality, featuring a drag-and-drop config system, real-time interaction capabilities, and integrated documentation support.",
+      "As the Product Developer & Designer for Setta, I crafted an intuitive interface that helps developers streamline their Python workflows. I created the brand identity including the logo, and implemented the frontend design using React and Tailwind CSS. The design emphasizes ease of use while maintaining powerful functionality, featuring a drag-and-drop config system, real-time interaction capabilities, and integrated documentation support.",
     thumb: () =>
       import("../images/portfolio/digitalprint/thumbs/setta_200.jpg"),
-    image: () => import("../images/portfolio/digitalprint/setta.png"),
+    // image: () => import("../images/portfolio/digitalprint/setta.png"),
+    link: "https://setta.dev",
+  },
+  {
+    title: "Learn Portugal",
+    description:
+      "Responsible for branding, book layout and design, as well as the website design and development (coded in astro).",
+    thumb: () =>
+      import("../images/portfolio/digitalprint/thumbs/learnportugal_200.png"),
+    // image: () => import("../images/portfolio/digitalprint/learnportugal.png"),
+    link: "https://learnportugal.com",
   },
   {
     title: "PyTorch Adapt",
@@ -25,17 +35,6 @@ export const portfolioItems = [
       ),
     image: () =>
       import("../images/portfolio/digitalprint/SmallGraphicsSpread.jpg"),
-  },
-  {
-    title: "University of Guelph FARE",
-    description:
-      "For this website, I used images of food and agriculture to visually communicate the focus of research for a professor at the University of Guelph.",
-    thumb: () =>
-      import(
-        "../images/portfolio/digitalprint/thumbs/UniversitySpread_200.jpg"
-      ),
-    image: () =>
-      import("../images/portfolio/digitalprint/UniversitySpread.jpg"),
   },
   {
     title: "KCM Whitepaper",
