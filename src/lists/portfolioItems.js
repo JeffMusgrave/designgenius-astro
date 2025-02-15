@@ -2,7 +2,7 @@ export const portfolioItems = [
   {
     title: "Setta",
     description:
-      "As the Product Developer & Designer for Setta, I crafted an intuitive interface that helps developers streamline their Python workflows. I created the brand identity including the logo, and implemented the frontend design using React and Tailwind CSS. The design emphasizes ease of use while maintaining powerful functionality, featuring a drag-and-drop config system, real-time interaction capabilities, and integrated documentation support.",
+      "As the Product Developer & Designer for Setta, I created the user interface first in Figma, then implemented and iterated on the design using React & Tailwind, coordinating closely with the full stack developer. Additionally, I created the brand identity including the logo and website using Figma, Photoshop, and Astro with Tailwind for the website.",
     thumb: () =>
       import("../images/portfolio/digitalprint/thumbs/setta_200.jpg"),
     // image: () => import("../images/portfolio/digitalprint/setta.png"),
