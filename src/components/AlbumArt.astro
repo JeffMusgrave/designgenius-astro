@@ -28,9 +28,10 @@ const { items } = Astro.props;
           <Image
             src={thumbImage.default}
             alt={item.alt ? item.alt : item.title}
-            width={300}
-            height={300}
+            width={500}
+            height={500}
             class="object-cover w-full h-full"
+            quality={80}
           />
           <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <span class="text-white text-center font-semibold px-2">{item.title}</span>
