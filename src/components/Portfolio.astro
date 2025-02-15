@@ -28,7 +28,7 @@ const { items } = Astro.props;
           <a 
             class="md:w-1/2 mb-8 md:mb-0" 
             href={fullImage ? fullImage.default.src : item.link}
-            {...(item.link && { target: "_blank"})}
+            target="_blank"
           >
             <Image
               src={thumbImage.default}
